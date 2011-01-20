@@ -1,0 +1,31 @@
+		    Pacemaker - QNX Shared Memory & Threads
+		    -----------------------------------
+
+Introduction
+============
+This application will simulate an implantable defibrillator device with triple redundancy.
+
+Documentation
+=============
+The application will track bad heart rhythms. Heart rhythms are measured in voltages.
+Possible voltages include -1mV, 0mV, and 1mV.
+The application allows changing of heart-rate, creating two versions of the SVT, and breaking on or more of the redundant parts.
+Supra-ventricular tachyarrhythmias (SVT) is a condition when the heart-rate changes from 0mV to -1mV and never hitting 1mV or 0mV to 1mV and never hitting -1mV.
+Parts of the defibrillator include the can, lead wires, atrial lead function and ventricular lead function.
+The application simulating the defibrillator is to read heart-rate from each part of the pacemaker and choose the best result from all 3 parts. If one part of the pacemaker fails, then results from that part of the pacemaker will be ignored and the voting system will use the remaining two.
+The device shocks the heart if it needs to be shocked, because of a life-threatening rhythm disturbance from the lower chambers of the heart. It can correct this rhythm. Because it has a pacemaker built into it, a defibrillator also has the capability of stimulating the heart like a pacemaker, to help stop fast rhythms, at times, and to prevent the heart from getting too slow.
+
+Requirements: 
+-QNX Software Development Platform 6.5 or greater
+
+Architecture:
+-hardware simulates writing/reading voltages in the triple redundancy modules using shared memory.
+-the software will read from the shared memory and do calculations then react accordingly.
+
+Instructions:
+-compile each .c in it's own QNX C/C++ project under Momentix.
+-run the hardware simulator then the software on the same machine.
+
+Author
+======
+Mike Niyonkuru
